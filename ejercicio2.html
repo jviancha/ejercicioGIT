@@ -1,0 +1,25 @@
+<script>
+  var inicio=['unacadena',3,9,1,10,500,1,10,true];
+  var lista=[];
+  for (let i = 0; i< inicio.length; i++) {
+    if (typeof (inicio[i]) === 'number') {         
+        lista.push(inicio[i]);   
+    }        
+  }
+  function Burbuja() {
+    var n, i, k, aux;
+    n = lista.length; 
+    for (k = 1; k < n; k++) {
+        for (i = 0; i < (n - k); i++) {
+            if (lista[i] > lista[i + 1]) {
+                aux = lista[i];
+                lista[i] = lista[i + 1];
+                lista[i + 1] = aux;
+            }
+        }
+    }  
+}
+
+Burbuja();
+console.log(lista); 
+</script>
