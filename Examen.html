@@ -1,0 +1,156 @@
+<script>
+    /*Ejercicio 1*/
+    var numero1 = 5;
+    var numero2 = 8;
+    if(numero1 < numero2) {
+        console.log("numero1 no es mayor que numero2");
+    }
+    if(numero2 >= 0) {
+        console.log("numero2 es positivo");
+    }
+    if(numero1<0) {
+        console.log("numero1 es negativo o distinto de cero");
+    }
+    if((numero1 + 1) < numero2) {
+        console.log("Incrementar en 1 unidad el valor de numero1 no lo hace mayor o igual que numero2");
+    }
+
+    /*Ejercicio 2*/
+    var numero = 10
+    var numeroFactorial=1;
+
+    for (let index = 1; index <= numero; index++) {
+        numeroFactorial*=index;        
+    }
+    console.log(numeroFactorial);
+
+
+    /*Ejercicio 3*/
+    function validarNumero(numero){
+        if ((numero%2)===0) {
+        console.log('El número es par');  
+        } else {
+            console.log('El número es impar');     
+        }
+    }
+    validarNumero(5);
+
+    /*Ejercicio 4*/
+    function isPalindrome(frase){
+        if (frase.replace(/ /g, "").toUpperCase() == frase.split("").reverse().join("").replace(/ /g, "").toUpperCase()) {
+            console.log('La frase: ', frase, 'Es palindrome')            
+        } else {
+            console.log('La frase: ', frase, 'No es palindrome')            
+        }
+    }
+    var frase='La ruta nos aporto otro paso natural'
+    isPalindrome(frase);
+
+
+     /*Ejercicio 5*/
+    class Persona {
+        nombre;
+        edad;
+        constructor(nombre, edad){
+            this.nombre=nombre;
+            this.edad=edad;
+        }
+        obtDetalles(){            
+            console.log('nombre: ', this.nombre, ' Edad: ', this.edad);
+        }
+    }
+
+    class Estudiante extends Persona{
+        calificación;
+        constructor(nombre, edad){
+            super(nombre, edad);
+            this.calificación=0;
+        }
+        obtDetalles(){
+            console.log('nombre: ', this.nombre, ' Edad: ', this.edad, ' Calificación: ', this.calificación);
+        }
+
+    } 
+
+    class Profesor extends Persona{
+        asignatura;
+        nivel;        
+        constructor(nombre, edad){
+            super(nombre, edad);
+            this.asignatura='JS';
+            this.nivel='Básico';
+        }
+        obtDetalles(){
+            console.log('nombre: ', this.nombre, ' Edad: ', this.edad, ' asignatura: ', this.asignatura , ' Nivel: ', this.nivel);
+        }
+    } 
+
+    class grupo {
+        profesor;
+        promedio;
+        estudiantes = [];
+
+        constructor (profesor, estudiantes){
+            this.profesor=profesor;
+            this.promedio=0;
+            this.estudiantes=estudiantes;
+        }
+
+        calificar(){
+            for (let index = 0; index < estudiantes.length; index++) {
+                estudiantes[index].calificación=(Math.random()*10);                
+            }
+        }
+
+        calcularPromedio(){
+            var promedioGeneral=0;
+            for (let index = 0; index < estudiantes.length; index++) {
+                console.log('notas', estudiantes[index].calificación)
+                promedioGeneral += estudiantes[index].calificación               
+            }
+            this.promedio=promedioGeneral/estudiantes.length;
+            console.log('Promedio general del grupo',this.promedio);
+        }
+        
+        obtdetalles(){
+            console.log('nombre profesor: ', this.profesor.nombre, ' Edad: ', this.profesor.edad, ' asignatura: ', this.profesor.asignatura , ' Nivel: ', this.profesor.nivel);
+            for (let index = 0; index < this.estudiantes.length; index++) {
+                console.log('nombre: ', this.estudiantes[index].nombre, ' Edad: ', this.estudiantes[index].edad, ' Calificación: ', this.estudiantes[index].calificación);           
+            }            
+        } 
+    }
+
+    var estudiantes=[];
+    const e1= new Estudiante('Juan',20); 
+    const e2= new Estudiante('Pablo',21);  
+    const e3= new Estudiante('Emmanuel',22);  
+    const e4= new Estudiante('Sandra',23);  
+    const e5= new Estudiante('Laura',24);  
+    const e6= new Estudiante('Jorge',25);
+    estudiantes.push(e1);   
+    estudiantes.push(e2);   
+    estudiantes.push(e3);   
+    estudiantes.push(e4);   
+    estudiantes.push(e5);   
+    estudiantes.push(e6);
+    const p1= new Profesor('Diego',40);
+    const g1= new grupo(p1,estudiantes);
+    g1.calificar();
+    g1.calcularPromedio();
+    g1.obtdetalles();   
+    
+    /*Ejercicio Bono*/
+    function combinaciones(palabra){
+        var palabraVector = Array.from(palabra);
+        let conjunto
+        for (let i = 0; i < palabraVector.length; i++) {
+            for (let j = 1; j< palabraVector.length-1; j++) {
+                console.log(palabraVector[i]+palabraVector[j]);                              
+            }    
+                    
+        }
+    }
+    var palabra='aca'
+    combinaciones(palabra)
+
+</script>
